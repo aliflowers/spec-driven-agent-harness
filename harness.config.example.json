@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "spec-driven-agent-harness-config",
+  "version": "1.0.0",
+  "project": {
+    "name": "MyProject",
+    "description": "Enterprise-grade application built with spec-driven autonomous SDLC",
+    "defaultBranch": "main"
+  },
+  "runtime": {
+    "language": "es",
+    "interactionLanguageNote": "Set to 'es' for Spanish conversation/reports, or 'en' for English"
+  },
+  "mentorMode": {
+    "enabled": true,
+    "logPath": "docs/mentor/apprentice-progress.md",
+    "allowInteractiveCheckpoints": true
+  },
+  "qualityGates": {
+    "strictTdd": true,
+    "requirePlanForStructuralChanges": true,
+    "requireMultiAgentAudit": true,
+    "unanimousApprovalRequired": true
+  },
+  "adapters": {
+    "issueTracker": {
+      "provider": "github-issues",
+      "options": {
+        "providersSupported": ["github-issues", "jira", "linear", "none"]
+      }
+    },
+    "database": {
+      "provider": "postgres",
+      "options": {
+        "providersSupported": ["postgres", "supabase", "prisma", "none"],
+        "stagingValidationRequired": true
+      }
+    },
+    "notifications": {
+      "provider": "none",
+      "options": {
+        "providersSupported": ["smtp-email", "slack", "none"]
+      }
+    }
+  }
+}

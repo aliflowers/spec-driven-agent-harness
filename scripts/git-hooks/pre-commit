@@ -1,0 +1,38 @@
+#!/bin/sh
+# Spec-Driven Agent Harness - Deterministic Pre-Commit Hook
+
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+
+# 1. Protected Branch Guard
+PROTECTED_BRANCHES="main master production release"
+for BRANCH in $PROTECTED_BRANCHES; do
+  if [ "$CURRENT_BRANCH" = "$BRANCH" ]; then
+    echo "================================================================"
+    echo " [HARNESS LOCK] Direct commits to '$CURRENT_BRANCH' are forbidden!"
+    echo " You must branch off to a dedicated feature branch: git checkout -b feat/<slug>"
+    echo "================================================================"
+    exit 1
+  fi
+done
+
+# 2. Block Secret Files & Environment Files
+STAGED_FILES=$(git diff --cached --name-only)
+for FILE in $STAGED_FILES; do
+  case "$FILE" in
+    .env* | *.pem | *.key | *id_rsa* | *credentials.json)
+      echo "[HARNESS LOCK] Blocked commit: Sensitive credential file staged: $FILE"
+      exit 1
+      ;;
+  esac
+done
+
+# 3. Block Leftover Focus Tests (.only) in Test and Code Files
+CODE_AND_TEST_FILES=$(git diff --cached --name-only | grep -E '\.(ts|js|jsx|tsx|py|go|rs|rb)$' || true)
+if [ -n "$CODE_AND_TEST_FILES" ]; then
+  if git diff --cached -- $CODE_AND_TEST_FILES | grep -E '\.(only)\(' >/dev/null 2>&1; then
+    echo "[HARNESS LOCK] Found focused test runner (.only) in staged code. Remove before commit."
+    exit 1
+  fi
+fi
+
+exit 0

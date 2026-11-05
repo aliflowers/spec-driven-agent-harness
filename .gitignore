@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Build and test artifacts
+dist/
+build/
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local active config (use harness.config.example.json as template)
+harness.config.local.json

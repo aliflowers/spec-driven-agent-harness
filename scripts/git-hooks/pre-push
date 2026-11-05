@@ -1,0 +1,17 @@
+#!/bin/sh
+# Spec-Driven Agent Harness - Deterministic Pre-Push Hook
+
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+
+PROTECTED_BRANCHES="main master production release"
+for BRANCH in $PROTECTED_BRANCHES; do
+  if [ "$CURRENT_BRANCH" = "$BRANCH" ]; then
+    echo "================================================================"
+    echo " [HARNESS LOCK] Direct pushes to '$CURRENT_BRANCH' are forbidden!"
+    echo " Open a Pull Request from your feature branch instead."
+    echo "================================================================"
+    exit 1
+  fi
+done
+
+exit 0
