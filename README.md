@@ -3,9 +3,22 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Protocol: AGENTS.md](https://img.shields.io/badge/Protocol-AGENTS.md-success.svg)](AGENTS.md)
+[![Author: Jesús Flores](https://img.shields.io/badge/Author-Jesús%20Flores%20(@aliflowers)-black?logo=github)](https://github.com/aliflowers)
 [![Architecture: Spec--Driven](https://img.shields.io/badge/Architecture-Spec--Driven-orange.svg)](#lifecycle-state-machine)
 [![Subagents: Autonomous Multi--Audit](https://img.shields.io/badge/Subagents-Multi--Audit-purple.svg)](#specialized-subagents)
 [![Docs: Español](https://img.shields.io/badge/Docs-Español-red.svg)](README.es.md)
+
+---
+
+### ⚡ Instant Install (1 Command via `npx`)
+
+Install the full harness into any existing project instantly without cloning:
+
+```bash
+npx github:aliflowers/spec-driven-agent-harness
+```
+
+*(Or use as a GitHub template by clicking **"Use this template"** above).*
 
 ---
 
@@ -89,26 +102,16 @@ The harness includes standalone, battle-tested subagent definitions in `.agents/
 
 ---
 
-## 🚀 Quick Start & Installation
+## 🚀 Installation & Usage
 
-### Option 1: Use as a GitHub Template
-Click **"Use this template"** on GitHub to start a brand-new project with the harness pre-installed.
-
-### Option 2: Install into an Existing Project
-
-#### On Windows (PowerShell):
-```powershell
-# Clone or download this repository, then run:
-./scripts/init-harness.ps1 -TargetDirectory "C:/path/to/your/project"
-```
-
-#### On Linux / macOS (Bash):
+### 1. Run with `npx` (Fastest)
+From inside your target project directory, run:
 ```bash
-./scripts/init-harness.sh /path/to/your/project
+npx github:aliflowers/spec-driven-agent-harness
 ```
 
-### Option 3: Configure Your Project
-Copy and customize `harness.config.example.json` as `harness.config.json`:
+### 2. Configure Your Project
+Copy or customize `harness.config.json`:
 ```json
 {
   "project": {
@@ -135,12 +138,15 @@ Copy and customize `harness.config.example.json` as `harness.config.json`:
 
 ```text
 spec-driven-agent-harness/
+├── bin/
+│   └── cli.js                         # Cross-platform npx installer
 ├── AGENTS.md                          # Master Autonomous SDLC Protocol
 ├── harness.config.example.json        # Project runtime & adapter configuration
+├── package.json                       # npm / npx package metadata
 ├── README.md                          # English documentation
 ├── README.es.md                       # Spanish documentation
 ├── .agents/
-│   ├── agents/                        # Subagent prompts
+│   ├── agents/                        # Standalone subagent prompts
 │   ├── skills/                        # Core methodology skills
 │   └── adapters/                      # Pluggable integrations (issues, db, alerts)
 ├── docs/
@@ -161,6 +167,15 @@ This framework was built from the ground up with a bilingual architecture:
 - **Core Reasoning Engine in English:** Protocols and subagent prompts leverage compact, high-precision English tokens.
 - **Localized Interaction in Spanish or English:** Configure `"language": "es"` in `harness.config.json`, and the agent will conduct 100% of its user conversations, explanations, reviews, and questions in Spanish!
 - Consulta la documentación completa en español en [`README.es.md`](README.es.md).
+
+---
+
+## 👤 Author & Architecture Credit
+
+Created and architected by **Jesús Flores**:
+- 🐙 **GitHub:** [@aliflowers](https://github.com/aliflowers)
+- 💼 **Project:** [spec-driven-agent-harness](https://github.com/aliflowers/spec-driven-agent-harness)
+- 🛡️ **Role:** Software & Systems Architect
 
 ---
 
