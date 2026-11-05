@@ -3,9 +3,22 @@
 
 [![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-blue.svg)](LICENSE)
 [![Protocolo: AGENTS.md](https://img.shields.io/badge/Protocolo-AGENTS.md-success.svg)](AGENTS.md)
+[![Autor: Jesús Flores](https://img.shields.io/badge/Autor-Jesús%20Flores%20(@aliflowers)-black?logo=github)](https://github.com/aliflowers)
 [![Arquitectura: Spec--Driven](https://img.shields.io/badge/Arquitectura-Spec--Driven-orange.svg)](#m%C3%A1quina-de-estados-del-ciclo-de-vida)
 [![Subagentes: Multi--Auditor%C3%ADa](https://img.shields.io/badge/Subagentes-Multi--Auditor%C3%ADa-purple.svg)](#subagentes-especializados)
 [![Docs: English](https://img.shields.io/badge/Docs-English-blue.svg)](README.md)
+
+---
+
+### ⚡ Instalación Instantánea (1 Comando con `npx`)
+
+Instala el arnés completo en cualquier proyecto existente sin necesidad de clonar manualmente:
+
+```bash
+npx github:aliflowers/spec-driven-agent-harness
+```
+
+*(O úsalo como plantilla haciendo clic en **"Use this template"** en GitHub).*
 
 ---
 
@@ -89,26 +102,16 @@ El arnés incluye las definiciones listas para usar en `.agents/agents/`:
 
 ---
 
-## 🚀 Inicio Rápido e Instalación
+## 🚀 Instalación y Uso
 
-### Opción 1: Usar como Plantilla de GitHub
-Haz clic en **"Use this template"** en GitHub para iniciar un nuevo proyecto con el arnés preconfigurado.
-
-### Opción 2: Instalar en un Proyecto Existente
-
-#### En Windows (PowerShell):
-```powershell
-# Clona o descarga este repositorio y ejecuta:
-./scripts/init-harness.ps1 -TargetDirectory "C:/ruta/a/tu/proyecto"
-```
-
-#### En Linux / macOS (Bash):
+### 1. Con `npx` (El método más rápido)
+Desde la terminal en la carpeta de tu proyecto destino, ejecuta:
 ```bash
-./scripts/init-harness.sh /ruta/a/tu/proyecto
+npx github:aliflowers/spec-driven-agent-harness
 ```
 
-### Opción 3: Configurar tu Proyecto
-Copia y personaliza `harness.config.example.json` como `harness.config.json`:
+### 2. Configura tu Proyecto
+Edita el archivo `harness.config.json` generado en la raíz:
 ```json
 {
   "project": {
@@ -136,6 +139,15 @@ Copia y personaliza `harness.config.example.json` como `harness.config.json`:
 Este proyecto fue diseñado con soporte bilingüe nativo:
 - **Motor de Razonamiento en Inglés:** Los protocolos maestros y prompts de subagentes utilizan tokens en inglés para máxima precisión técnica y ahorro de contexto.
 - **Interacción en Español:** Con solo configurar `"language": "es"`, el agente mantendrá todas las conversaciones, explicaciones del modo mentor, preguntas interactivas y reportes en perfecto español.
+
+---
+
+## 👤 Autor y Créditos de Arquitectura
+
+Creado y diseñado por **Jesús Flores**:
+- 🐙 **GitHub:** [@aliflowers](https://github.com/aliflowers)
+- 💼 **Repositorio Oficial:** [spec-driven-agent-harness](https://github.com/aliflowers/spec-driven-agent-harness)
+- 🛡️ **Rol:** Software & Systems Architect
 
 ---
 
