@@ -3,6 +3,11 @@
 
 CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
 
+# Allow initial push when upstream tracking branch does not exist yet
+if ! git rev-parse --verify "@{u}" >/dev/null 2>&1; then
+  exit 0
+fi
+
 PROTECTED_BRANCHES="main master production release"
 for BRANCH in $PROTECTED_BRANCHES; do
   if [ "$CURRENT_BRANCH" = "$BRANCH" ]; then
